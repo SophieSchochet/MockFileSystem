@@ -8,7 +8,7 @@ TextFile::TextFile(string input_file) {
 
 void TextFile::read() {
 	for (char c : file_contents) {
-		cout << c << " ";
+		cout << c;
 	}
 }
 
@@ -21,5 +21,14 @@ string TextFile::getName() {
 }
 
 int TextFile::write(vector<char> writeIn) {
-
+	file_contents = writeIn;
+	return 0;
 }
+
+int TextFile::append(std::vector<char> toAdd) {
+	for (char c : toAdd) {
+		file_contents.push_back(c);
+	}
+	return 0;
+}
+

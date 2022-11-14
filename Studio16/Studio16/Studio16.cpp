@@ -9,6 +9,15 @@ using namespace std;
 
 int main()
 {
+
+	TextFile file = TextFile("tester");
+	AbstractFile* filePtr = &file;
+	vector<char> writeIn;
+	writeIn.push_back('h');
+	writeIn.push_back('i');
+	filePtr->write(writeIn);
+	cout << "Reading..." << endl;
+	filePtr->read();
 	return 0;
 }
 
