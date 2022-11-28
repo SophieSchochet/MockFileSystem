@@ -1,6 +1,7 @@
 #pragma once
 // TextFile declaration goes here
 #include "AbstractFile.h"
+
 class TextFile:public AbstractFile {
 private:
 	std::vector<char> file_contents;

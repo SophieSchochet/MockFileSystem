@@ -3,7 +3,8 @@
 #include <vector>
 #include <iostream>
 #include<string>
-
+#include <map>
+#include <set>
 
 class AbstractFile {
 public:
@@ -12,6 +13,10 @@ public:
 	virtual int append(std::vector<char> toAdd)=0;
 	virtual unsigned int getSize()=0;
 	virtual std::string getName()=0;
-
-
+	virtual ~AbstractFile() = default;
 };
+
+
+enum errors {success, incorrectImageFileInput, appendNotAvailable, sizeMismatch, 
+	duplicateFile, nullFile, duplicateFileName, invalidFileName, invalidExtension,
+	fileNotOpen, fileDoesNotExist, fileAlreadyOpen};
