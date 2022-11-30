@@ -20,11 +20,12 @@ int SimpleFileSystem::createFile(std::string fileName) {
 	}
 	if (fileName.size() > 4) {
 		string extension = fileName.substr(fileName.size() - 4, fileName.size() - 1);
-		if (extension == "txt") {
+		cout << extension << endl;
+		if (extension == ".txt") {
 			systemMap.insert(make_pair(fileName, new TextFile(fileName)));
 			return success;
 		}
-		else if (extension == "img") {
+		else if (extension == ".img") {
 			systemMap.insert(make_pair(fileName, new ImageFile(fileName)));
 			return success;
 		}
