@@ -14,29 +14,6 @@ int SimpleFileSystem::addFile(string fileName, AbstractFile* inFile) {
 	return success;
 }
 
-int SimpleFileSystem::createFile(std::string fileName) {
-	if (systemMap.count(fileName) != 0) {
-		return duplicateFileName;
-	}
-	if (fileName.size() > 4) {
-		string extension = fileName.substr(fileName.size() - 4, fileName.size() - 1);
-		cout << extension << endl;
-		if (extension == ".txt") {
-			systemMap.insert(make_pair(fileName, new TextFile(fileName)));
-			return success;
-		}
-		else if (extension == ".img") {
-			systemMap.insert(make_pair(fileName, new ImageFile(fileName)));
-			return success;
-		}
-		return invalidExtension;
-	}
-	else {
-		return invalidFileName;
-	}
-
-}
-
 AbstractFile* SimpleFileSystem::openFile(string fileName) {
 	if (systemMap.count(fileName) == 0) {
 		return nullptr;
