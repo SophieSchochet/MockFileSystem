@@ -5,5 +5,4 @@
 class SimpleFileFactory: public AbstractFileFactory {
 public:
 	virtual AbstractFile* createFile(std::string fileName) override;
-
 };

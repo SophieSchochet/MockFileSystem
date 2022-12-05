@@ -2,6 +2,8 @@
 
 #include "ImageFile.h"
 
+#include "AbstractFileVisitor.h"
+
 using namespace std;
 
 ImageFile::ImageFile(string inName) {
@@ -42,17 +44,15 @@ int ImageFile::append(vector<char> toAppend) {
 	return appendNotAvailable;
 }
 
-void ImageFile::read() {
-	for (int i = size-1; i >= 0; i--) {
-		for( int j = 0; j < size; j++) {
-			cout << contents[getIndexFromCoords(j, i)];
-		}
-		cout << endl;
-	}
+vector<char> ImageFile::read() {
+	return contents;
 }
-
 
 
 int ImageFile::getIndexFromCoords(int x, int y) {
 	return y * size + x;
+}
+
+void ImageFile::accept(AbstractFileVisitor* afv) {
+	afv->visit_ImageFile(this);
 }
