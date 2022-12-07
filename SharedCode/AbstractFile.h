@@ -22,4 +22,4 @@ public:
 
 enum errors {success, incorrectImageFileInput, appendNotAvailable, sizeMismatch, 
 	duplicateFile, nullFile, duplicateFileName, invalidFileName, invalidExtension,
-	fileNotOpen, fileDoesNotExist, fileAlreadyOpen,incorrectPassword};
+	fileNotOpen, fileDoesNotExist, fileAlreadyOpen,incorrectPassword, cannotAddCommand, userQuit, commandDoesNotExist, cannotCreateFile};
