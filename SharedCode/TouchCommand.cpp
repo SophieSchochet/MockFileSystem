@@ -11,7 +11,9 @@ void TouchCommand::displayInfo() {
 }
 
 int TouchCommand::execute(string s) {
-
+	if (s.length() > 20) {
+		return fileNameTooLong;
+	}
 	AbstractFile* ptr = aff_ptr->createFile(s);
 	if (ptr != nullptr) {
 		int result = afs_ptr->addFile(s,ptr);

@@ -10,4 +10,5 @@ public:
 	virtual int deleteFile(std::string fileName) = 0;
 	virtual AbstractFile* openFile(std::string fileName) = 0;
 	virtual int closeFile(AbstractFile* abfile) = 0;
+	virtual std::set<std::string> getFileNames() = 0;
 };

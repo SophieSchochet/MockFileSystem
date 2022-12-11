@@ -25,6 +25,14 @@ AbstractFile* SimpleFileSystem::openFile(string fileName) {
 	return systemMap.at(fileName);
 }
 
+set<string> SimpleFileSystem::getFileNames() {
+	set<string> fileNames;
+	for (auto& x : systemMap) {
+		fileNames.insert(x.first);
+	}
+	return fileNames;
+}
+
 int SimpleFileSystem::closeFile(AbstractFile* inFile) {
 	if (openSet.count(inFile) > 0) {
 		openSet.erase(inFile);
