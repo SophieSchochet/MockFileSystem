@@ -26,14 +26,16 @@ int CommandPrompt::addCommand(std::string s, AbstractCommand* ac_in) {
 int  CommandPrompt:: run() {
 	while (true) {
 		string input = prompt();
-		cout << input << endl;
+		cout <<"Input: " << input << endl;
 		if (input == "q") {
 			cout << "User has Quit." << endl;
 			return userQuit;
-		} else if (input == "help") {
+		} 
+		else if (input == "help") {
 			listCommands();
 		}
-		else if (input.find(' ') < input.length()) {
+
+		else if (! (input.find(' ') < input.length())) {
 			bool found = false;
 			for (auto const& x : cmd_map) {
 				if (x.first == input) {
@@ -55,7 +57,6 @@ int  CommandPrompt:: run() {
 				string second;
 					iss >> second;
 				bool found = false;
-				cout << second << endl;
 				for (auto const& x : cmd_map) {
 					if (x.first == second) {
 						found = true;
@@ -72,9 +73,9 @@ int  CommandPrompt:: run() {
 				for (auto const& x : cmd_map) {
 					if (x.first == first) {
 						found = true;
-						string info = input.substr(first.length());
-						cout << info << endl;
-						if (x.second->execute(info) != 0) {
+						string info = input.substr(first.length() +1);
+						cout <<"Info:"<< info << endl;
+						if (x.second->execute(info) != successful) {
 							cout << "Command failed" << endl;
 						}
 					}
