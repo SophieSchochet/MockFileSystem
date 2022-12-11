@@ -15,7 +15,7 @@ int TouchCommand::execute(string s) {
 	AbstractFile* ptr = aff_ptr->createFile(s);
 	if (ptr != nullptr) {
 		int result = afs_ptr->addFile(s,ptr);
-		if (result != success) {
+		if (result != successful) {
 			delete(ptr);
 		} 
 		return result;

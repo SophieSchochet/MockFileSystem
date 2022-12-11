@@ -23,14 +23,14 @@ string TextFile::getName() {
 
 int TextFile::write(vector<char> writeIn) {
 	file_contents = writeIn;
-	return 0;
+	return successful;
 }
 
 int TextFile::append(std::vector<char> toAdd) {
 	for (char c : toAdd) {
 		file_contents.push_back(c);
 	}
-	return 0;
+	return successful;
 }
 
 void TextFile::accept(AbstractFileVisitor* afv) {

@@ -20,6 +20,6 @@ public:
 };
 
 
-enum errors {success, incorrectImageFileInput, appendNotAvailable, sizeMismatch, 
+enum errors {successful, incorrectImageFileInput, appendNotAvailable, sizeMismatch, 
 	duplicateFile, nullFile, duplicateFileName, invalidFileName, invalidExtension,
 	fileNotOpen, fileDoesNotExist, fileAlreadyOpen,incorrectPassword, cannotAddCommand, userQuit, commandDoesNotExist, cannotCreateFile};

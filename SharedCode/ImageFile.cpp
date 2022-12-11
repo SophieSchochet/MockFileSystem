@@ -37,7 +37,7 @@ int ImageFile::write(vector<char> inputs) {
 		}
 		contents.push_back(x);
 	}
-	return success;
+	return successful;
 }
 
 int ImageFile::append(vector<char> toAppend) {

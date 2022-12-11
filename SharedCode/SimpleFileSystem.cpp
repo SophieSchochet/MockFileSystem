@@ -11,7 +11,7 @@ int SimpleFileSystem::addFile(string fileName, AbstractFile* inFile) {
 		return nullFile;
 	}
 	systemMap.insert(make_pair(fileName, inFile));
-	return success;
+	return successful;
 }
 
 AbstractFile* SimpleFileSystem::openFile(string fileName) {
@@ -28,7 +28,7 @@ AbstractFile* SimpleFileSystem::openFile(string fileName) {
 int SimpleFileSystem::closeFile(AbstractFile* inFile) {
 	if (openSet.count(inFile) > 0) {
 		openSet.erase(inFile);
-		return success;
+		return successful;
 	}
 	return fileNotOpen;
 }
@@ -43,6 +43,6 @@ int SimpleFileSystem::deleteFile(string fileName) {
 	AbstractFile* ptr = systemMap.at(fileName);
 	systemMap.erase(fileName);
 	delete ptr;
-	return success;
+	return successful;
 	
 }

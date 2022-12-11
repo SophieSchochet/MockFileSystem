@@ -16,7 +16,7 @@ void CommandPrompt::setFileFactory(AbstractFileFactory* aff_in) {
 int CommandPrompt::addCommand(std::string s, AbstractCommand* ac_in) {
 	
 	if (cmd_map.insert({ s, ac_in }).second) {
-		return success;
+		return successful;
 	}
 
 	return cannotAddCommand;
@@ -26,7 +26,9 @@ int CommandPrompt::addCommand(std::string s, AbstractCommand* ac_in) {
 int  CommandPrompt:: run() {
 	while (true) {
 		string input = prompt();
+		cout << input << endl;
 		if (input == "q") {
+			cout << "User has Quit." << endl;
 			return userQuit;
 		} else if (input == "help") {
 			listCommands();
@@ -37,22 +39,23 @@ int  CommandPrompt:: run() {
 				if (x.first == input) {
 					found = true;
 					if (x.second->execute("") != 0) {
-						cout << "Command failed";
+						cout << "Command failed" << endl;
 					}
 				}
 			}
 			if (!found) {
-				cout << "Command not found";
+				cout << "Command not found" << endl;
 			}
 		}
 		else {
 			stringstream iss(input);
 			string first;
-			 iss >> first;
+			iss >> first;
 			if (first == "help") {
 				string second;
 					iss >> second;
 				bool found = false;
+				cout << second << endl;
 				for (auto const& x : cmd_map) {
 					if (x.first == second) {
 						found = true;
@@ -60,7 +63,7 @@ int  CommandPrompt:: run() {
 					}
 				}
 				if (!found) {
-					cout << "Command not found";
+					cout << "Command not found" << endl;
 				}
 
 			}
@@ -70,8 +73,9 @@ int  CommandPrompt:: run() {
 					if (x.first == first) {
 						found = true;
 						string info = input.substr(first.length());
+						cout << info << endl;
 						if (x.second->execute(info) != 0) {
-							cout << "Command failed";
+							cout << "Command failed" << endl;
 						}
 					}
 				}
