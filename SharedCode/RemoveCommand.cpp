@@ -2,9 +2,9 @@
 
 using namespace std;
 
-RemoveCommand::RemoveCommand(AbstractFileSystem* afs_in, AbstractFileFactory* aff_in) {
+RemoveCommand::RemoveCommand(AbstractFileSystem* afs_in) {
 	afs_ptr = afs_in;
-	aff_ptr = aff_in;
+
 }
 
 void RemoveCommand::displayInfo() {

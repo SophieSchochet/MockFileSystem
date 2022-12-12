@@ -4,10 +4,10 @@
 
 class RemoveCommand : public AbstractCommand {
 	AbstractFileSystem* afs_ptr;
-	AbstractFileFactory* aff_ptr;
+	
 
 public:
-	RemoveCommand(AbstractFileSystem* afs_in, AbstractFileFactory* aff_in);
+	RemoveCommand(AbstractFileSystem* afs_in);
 	~RemoveCommand() = default;
 
 	void displayInfo() override;

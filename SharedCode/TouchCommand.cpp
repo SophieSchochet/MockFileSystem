@@ -1,4 +1,5 @@
 #include "TouchCommand.h"
+#include "../../Studio16-21/SharedCode/PasswordProxy.h"
 using namespace std;
 
 TouchCommand::TouchCommand(AbstractFileSystem* afs_in, AbstractFileFactory* aff_in) {
@@ -11,18 +12,41 @@ void TouchCommand::displayInfo() {
 }
 
 int TouchCommand::execute(string s) {
-	if (s.length() > 20) {
-		return fileNameTooLong;
+	
+	AbstractFile* ptr;
+	if (s.substr(s.length() - 2, s.length()) == "-p") {
+		s = s.substr(0, s.length() - 2);
+		ptr = aff_ptr->createFile(s);
+		cout << "What is the password you want to create?" << endl;
+		string in_pswd;
+		cin >> in_pswd;
+		PasswordProxy pswd = PasswordProxy(ptr,in_pswd);	
+		if (ptr != nullptr) {
+			int result = afs_ptr->addFile(s, &pswd);
+			if (result != successful) {
+				delete(ptr);
+			}
+			return result;
+		}
+		else {
+			return cannotCreateFile;
+		}
 	}
-	AbstractFile* ptr = aff_ptr->createFile(s);
-	if (ptr != nullptr) {
-		int result = afs_ptr->addFile(s,ptr);
-		if (result != successful) {
-			delete(ptr);
-		} 
-		return result;
+	else
+
+	{
+		ptr = aff_ptr->createFile(s);
+		if (ptr != nullptr) {
+			int result = afs_ptr->addFile(s, ptr);
+			if (result != successful) {
+				delete(ptr);
+			}
+			return result;
+		}
+		else {
+			return cannotCreateFile;
+		}
 	}
-	else {
-		return cannotCreateFile;
-	}
+		
+	
 }

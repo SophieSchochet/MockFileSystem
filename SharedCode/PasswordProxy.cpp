@@ -2,7 +2,7 @@
 #include "AbstractFileVisitor.h"
 using namespace std;
 
-
+PasswordProxy::PasswordProxy(AbstractFile* in_ptr, string in_pswd) : af_ptr(in_ptr), pswd(in_pswd) {}
 PasswordProxy :: ~PasswordProxy() {
 	delete this->af_ptr;
 }
