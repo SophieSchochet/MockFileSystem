@@ -14,7 +14,7 @@ void MetadataDisplayVisitor::visit_TextFile(TextFile* tf) {
 
 void MetadataDisplayVisitor::visit_ImageFile(ImageFile* imf) {
 	cout << setw(20);
-	cout << "File name: " << imf->getName();
-	cout << "File type: " << "image";
-	cout << "File size: " << imf->getSize() << endl;
+	cout << imf->getName();
+	cout << "image";
+	cout << imf->getSize() << endl;
 }

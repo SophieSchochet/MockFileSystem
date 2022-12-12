@@ -3,9 +3,9 @@
 using namespace std;
 
 
-DisplayCommand::DisplayCommand(AbstractFileSystem* afs_in, BasicDisplayVisitor* bdv_in) {
+DisplayCommand::DisplayCommand(AbstractFileSystem* afs_in) {
 	afs_ptr = afs_in;
-	bdv_ptr = bdv_in;
+	bdv_ptr = new BasicDisplayVisitor();
 }
 
 

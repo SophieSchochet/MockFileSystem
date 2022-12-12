@@ -3,6 +3,9 @@
 
 using namespace std;
 
+MacroCommand::MacroCommand(AbstractFileSystem* afs_ptr_in) {
+	afs_ptr = afs_ptr_in;
+}
 
 
 //Takes a pointer to an AbstractCommand and pushes it to the end of member variable commands vector

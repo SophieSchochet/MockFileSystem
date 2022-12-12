@@ -12,8 +12,9 @@ class MacroCommand : public AbstractCommand {
 private:
 	std::vector<AbstractCommand*> commands;
 	AbstractParsingStrategy* aps_ptr;
+	AbstractFileSystem* afs_ptr;
 public:
-	MacroCommand();
+	MacroCommand(AbstractFileSystem* afs_ptr_in);
 	~MacroCommand() = default;
 	void displayInfo() override;
 	int execute(std::string s) override;
