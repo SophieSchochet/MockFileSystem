@@ -16,6 +16,7 @@ public:
 	unsigned int getSize() override;
 	std::string getName() override;
 	void accept(AbstractFileVisitor* afv) override;
+	AbstractFile* clone(std::string newName) override;
 
 protected:
 	std::string passwordPrompt();

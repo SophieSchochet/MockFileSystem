@@ -36,3 +36,7 @@ int TextFile::append(std::vector<char> toAdd) {
 void TextFile::accept(AbstractFileVisitor* afv) {
 	afv->visit_TextFile(this);
 }
+
+AbstractFile* TextFile::clone(string newName) {
+	return new TextFile(newName += ".txt");
+}

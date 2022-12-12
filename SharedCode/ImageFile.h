@@ -16,6 +16,8 @@ public:
 	unsigned int getSize() override;
 	std::string getName() override;
 	void accept(AbstractFileVisitor* afv) override;
+	AbstractFile* clone(std::string newName) override;
+
 
 private:
 	int getIndexFromCoords(int x, int y);

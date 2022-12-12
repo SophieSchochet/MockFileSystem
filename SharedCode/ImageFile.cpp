@@ -56,3 +56,7 @@ int ImageFile::getIndexFromCoords(int x, int y) {
 void ImageFile::accept(AbstractFileVisitor* afv) {
 	afv->visit_ImageFile(this);
 }
+
+AbstractFile* ImageFile::clone(string newName) {
+	return new ImageFile (newName += ".img");
+}

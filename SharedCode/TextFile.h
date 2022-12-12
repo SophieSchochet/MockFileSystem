@@ -14,4 +14,5 @@ public:
 	virtual unsigned int getSize() override;
 	virtual std::string getName() override;
 	virtual void accept(AbstractFileVisitor* afv) override;
+	AbstractFile* clone(std::string newName) override;
 };
