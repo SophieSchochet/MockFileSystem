@@ -3,9 +3,9 @@
 
 using namespace std;
 
-LSCommand::LSCommand(AbstractFileSystem* afs_in, AbstractFileFactory* aff_in) {
+LSCommand::LSCommand(AbstractFileSystem* afs_in, MetadataDisplayVisitor* mdv_ptr_in) {
 	afs_ptr = afs_in;
-	aff_ptr = aff_in;
+	mdv_ptr = mdv_ptr_in;
 }
 
 int LSCommand::execute(std::string s) {
@@ -13,8 +13,8 @@ int LSCommand::execute(std::string s) {
 	if (s == "") {
 		int count = 0;
 		cout << setw(20);
-		for (auto& x : fileNames) {
-			cout << x;
+		for (auto& fileName : fileNames) {
+			cout << fileName;
 			count++;
 			if (count % 2 == 0) {
 				cout << endl;
@@ -23,13 +23,18 @@ int LSCommand::execute(std::string s) {
 		return successful;
 	}
 	else if (s == "-m") { //Want to display Metadata using dispaly visitor 
-
+		cout << setw(20);
+		for (auto& fileName : fileNames) {
+			AbstractFile* currentFile = afs_ptr->openFile(fileName);
+			currentFile->accept(mdv_ptr);
+		}
+		return successful;
 	}
 	else {
 		return commandDoesNotExist;
 	}
 }
 
-void displayInfo() {
+void LSCommand::displayInfo() {
 	cout << "ls command outputs the name of all files currently in the system. It is invoked by typing: ls" << endl;
 }
