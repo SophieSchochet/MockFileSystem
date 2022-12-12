@@ -3,18 +3,17 @@
 
 using namespace std;
 
-LSCommand::LSCommand(AbstractFileSystem* afs_in, MetadataDisplayVisitor* mdv_ptr_in) {
+LSCommand::LSCommand(AbstractFileSystem* afs_in) {
 	afs_ptr = afs_in;
-	mdv_ptr = mdv_ptr_in;
+	mdv_ptr = new MetadataDisplayVisitor();
 }
 
 int LSCommand::execute(std::string s) {
 	set<string> fileNames = afs_ptr->getFileNames();
 	if (s == "") {
 		int count = 0;
-		cout << setw(20);
 		for (auto& fileName : fileNames) {
-			cout << fileName;
+			cout << setw(20) << fileName;
 			count++;
 			if (count % 2 == 0) {
 				cout << endl;
@@ -23,7 +22,7 @@ int LSCommand::execute(std::string s) {
 		return successful;
 	}
 	else if (s == "-m") { //Want to display Metadata using dispaly visitor 
-		cout << setw(20);
+		//cout << setw(20);
 		for (auto& fileName : fileNames) {
 			AbstractFile* currentFile = afs_ptr->openFile(fileName);
 			currentFile->accept(mdv_ptr);

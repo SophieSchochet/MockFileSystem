@@ -8,7 +8,7 @@ private:
 	AbstractFileSystem* afs_ptr;
 	MetadataDisplayVisitor* mdv_ptr;
 public: 
-	LSCommand(AbstractFileSystem* afs_in, MetadataDisplayVisitor* mdv_ptr_in);
+	LSCommand(AbstractFileSystem* afs_in);
 	int execute(std::string s) override;
 	void displayInfo() override;
 	~ LSCommand() = default;
