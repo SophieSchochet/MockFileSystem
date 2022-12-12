@@ -7,6 +7,7 @@
 #include "AbstractFileSystem.h"
 #include "AbstractParsingStrategy.h"
 
+
 class MacroCommand : public AbstractCommand {
 private:
 	std::vector<AbstractCommand*> commands;
