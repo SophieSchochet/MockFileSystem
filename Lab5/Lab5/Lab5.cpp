@@ -24,6 +24,7 @@ int main()
 	DisplayCommand dc = DisplayCommand(&sfs);
 	CatCommand cat_cmd = CatCommand(&sfs);
 	LSCommand ls_cmd = LSCommand(&sfs);
+	//to let me commit
 
 	mac_cmd.addCommand(&cpy);
 	mac_cmd.addCommand(&rem);
