@@ -12,7 +12,7 @@ int CatCommand::execute(std::string s) {
 		return fileDoesNotExist;
 	}
 	bool ifAppend = false;
-	string extension = s.substr(s.length() - 2);
+	string extension = s.substr(s.length() - 2,2);
 	if (extension == "-a") {
 		s = s.substr(0, s.length() - 3);
 		ifAppend = true;
@@ -21,7 +21,7 @@ int CatCommand::execute(std::string s) {
 		catFile->read();
 	}
 	vector<char> cat_user_input;
-	string input = "";
+	string input;
 	while (input != ":q" && input != ":wq") {
 		getline(cin, input);
 		for (char x : input) {

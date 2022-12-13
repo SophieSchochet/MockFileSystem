@@ -6,10 +6,13 @@
 using namespace std;
 
 void MetadataDisplayVisitor::visit_TextFile(TextFile* tf) {
-	cout << setw(20);
-	cout << "File name: " << tf->getName();
-	cout << "File type: " << "text";
-	cout << "File size: " << tf->getSize() << endl;
+	if (tf != nullptr) {
+		cout << setw(20);
+		cout << "File name: " << tf->getName();
+		cout << "File type: " << "text";
+		cout << "File size: " << tf->getSize() << endl;
+	}
+
  }
 
 void MetadataDisplayVisitor::visit_ImageFile(ImageFile* imf) {

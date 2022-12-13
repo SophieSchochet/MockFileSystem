@@ -81,7 +81,7 @@ int  CommandPrompt:: run() {
 					}
 				}
 				if (!found) {
-					cout << "Command not found";
+					cout << "Command not found" << endl;;
 				}
 			}
 			

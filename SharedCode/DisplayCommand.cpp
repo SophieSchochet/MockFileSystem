@@ -9,12 +9,11 @@ DisplayCommand::DisplayCommand(AbstractFileSystem* afs_in) {
 }
 
 
-int DisplayCommand::execute(std::string s) {
-	string sub = s.substr(s.length() - 2);
+int DisplayCommand::execute(string s) {
+	//string sub = s.substr(s.length() - 3);
 
-
-	if (sub == "-d") { //Unformatted
-		string fileName = sub.substr(0, s.length() - 3);
+	if (s.substr(s.length() - 2, 2) == "-d") { //Unformatted
+		string fileName = s.substr(0, s.length() - 2);
 		AbstractFile* currentFile = afs_ptr->openFile(fileName);
 		if (currentFile == nullptr) {
 			return fileNotOpen;

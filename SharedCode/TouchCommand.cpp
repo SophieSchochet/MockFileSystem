@@ -15,10 +15,10 @@ int TouchCommand::execute(string s) {
 	
 	AbstractFile* ptr;
 	
-	if (s.substr(s.length() - 2) == "-p") {
+	if (s.substr(s.length()-2,2) == "-p") {
 		
 		s = s.substr(0, s.length() - 3);
-		
+		cout << "substring:" << s << endl;
 		ptr = aff_ptr->createFile(s);
 		cout << "What is the password you want to create?" << endl;
 		string in_pswd;
