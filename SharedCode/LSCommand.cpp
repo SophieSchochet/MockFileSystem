@@ -19,6 +19,7 @@ int LSCommand::execute(std::string s) {
 				cout << endl;
 			}
 		}
+		cout << endl; //this is to put the  prompt on the next line
 		return successful;
 	}
 	else if (s == "-m") { //Want to display Metadata using dispaly visitor 

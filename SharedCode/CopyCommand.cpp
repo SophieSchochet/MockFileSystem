@@ -37,8 +37,10 @@ int CopyCommand::execute(std::string s) {
 		cout << "Unable to copy contents into a new file" << endl;
 		afs_ptr->deleteFile(file_to_duplicate->getName());
 		new_clone = nullptr; 
+		cout << "faile to write in cloned file" << endl;
 		return failedCommand;
 	}
+	cout << "successfully wrote in cloned file" << endl;
 	afs_ptr->closeFile(file_to_duplicate);
 	return successful;
 }
