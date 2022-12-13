@@ -22,11 +22,12 @@ int CommandPrompt::addCommand(std::string s, AbstractCommand* ac_in) {
 	return cannotAddCommand;
 }
 
-
+//This function will run continuously until the user chooses to quit;
 int  CommandPrompt:: run() {
+
 	while (true) {
 		string input = prompt();
-		cout <<"Input: " << input << endl;
+
 		if (input == "q") {
 			cout << "User has Quit." << endl;
 			return userQuit;
@@ -89,17 +90,14 @@ int  CommandPrompt:: run() {
 	}
 }
 
+//Print out all the commands that are available
 void CommandPrompt :: listCommands() {
-	/*map<string, AbstractCommand*> ::iterator it;
-	for (it = cmd_map.begin(); it != cmd_map.end(); ++it) {
-
-	}*/
-
 	for (auto const& x : cmd_map) {
 		cout << x.first << endl;
 	}
 }
 
+//Prompt the user to enter a command. Simulates a real terminal.
 string CommandPrompt::prompt() {
 	cout << "Please input a command, q to quit, help for a list of commands, or help followed by a command name for more information about that command" << endl;
 	cout << "$   ";

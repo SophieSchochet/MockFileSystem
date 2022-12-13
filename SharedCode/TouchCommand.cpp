@@ -27,6 +27,7 @@ int TouchCommand::execute(string s) {
 		PasswordProxy pswd = PasswordProxy(ptr,in_pswd);	
 		if (ptr != nullptr) {
 			int result = afs_ptr->addFile(fileName, &pswd);
+		
 			if (result != successful) {
 				delete(ptr);
 			}

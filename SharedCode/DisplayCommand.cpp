@@ -31,7 +31,7 @@ int DisplayCommand::execute(string s) {
 
 	}
 
-	else { //Formatted
+	else { //Formatted option
 		
 		AbstractFile* currentFile = afs_ptr->openFile(s);
 		if (currentFile == nullptr) {

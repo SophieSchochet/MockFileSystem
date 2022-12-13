@@ -21,10 +21,12 @@ void MacroCommand::setParseStrategy(AbstractParsingStrategy* aps_ptr_in) {
 int MacroCommand::execute(string s) {
 	vector<string> inputs = aps_ptr->parse(s);
 	int cmdSuccess = successful;
+	//Iterate through all commands that the MacroCommand is comprised of 
 	for (int i = 0; i < commands.size(); i++) {
 		AbstractCommand* cmd = commands[i];
 		cmdSuccess += cmd->execute(inputs[i]);
 	}
+	//If any command fails, cmdSuccess will be greater than 0 and the whole MacroCommand fails
 	if (cmdSuccess != successful) {
 		return failedCommand;
 	}
@@ -35,5 +37,5 @@ int MacroCommand::execute(string s) {
 }
 
 void MacroCommand::displayInfo() {
-	cout << "A macroCommand is a combination of two commands." << endl;
+	cout << "A macroCommand is a combination of two commands. Refer to ReadMe.txt for more information on how to invoke each individual command" << endl;
 }
