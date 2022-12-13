@@ -65,6 +65,5 @@ void PasswordProxy ::accept(AbstractFileVisitor* afv) {
 }
 
 AbstractFile* PasswordProxy::clone(string newName) {
-	AbstractFile* cloned_ptr = af_ptr->clone(newName);
-	return new PasswordProxy(cloned_ptr,pswd);
+	return new PasswordProxy(af_ptr->clone(newName),pswd);
 }

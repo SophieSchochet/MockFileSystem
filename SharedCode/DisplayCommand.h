@@ -2,6 +2,7 @@
 #include "../SharedCode/AbstractCommand.h"
 #include "../SharedCode/AbstractFileSystem.h"
 #include "../SharedCode/BasicDisplayVisitor.h"
+#include <sstream>
 
 class DisplayCommand : public AbstractCommand {
 private:

@@ -27,6 +27,7 @@ int LSCommand::execute(std::string s) {
 		for (auto& fileName : fileNames) {
 			AbstractFile* currentFile = afs_ptr->openFile(fileName);
 			currentFile->accept(mdv_ptr);
+			afs_ptr->closeFile(currentFile);
 		}
 		return successful;
 	}

@@ -47,18 +47,22 @@ int CatCommand::execute(std::string s) {
 	}
 	if (input == ":q") {
 		cout << "User has quit without saving" << endl;
+		afs_ptr->closeFile(catFile);
 		return successful;
 	}
 	else if (input == ":wq") {
 		cout << "User has saved and quit." << endl;
 		if (ifAppend) {
+			afs_ptr->closeFile(catFile);
 			return catFile->append(cat_user_input);
 		}
 		else {
+			afs_ptr->closeFile(catFile);
 			return catFile->write(cat_user_input);
 		}
 	}
 	else {
+		afs_ptr->closeFile(catFile);
 		return failedCommand;
 	}
 }
