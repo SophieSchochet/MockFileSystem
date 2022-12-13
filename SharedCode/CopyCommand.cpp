@@ -13,7 +13,7 @@ int CopyCommand::execute(std::string s) {
 	string new_name;
 
 	//If we can't extract two names, the command is being used incorrectly.
-	if (!((iss >> to_copy) && (iss >> new_name))) {
+	if (!(iss >> to_copy) || !(iss >> new_name)) {
 		cout << "Please enter both the file you wish to copy and the new name you want to use" << endl;
 		return failedCommand;
 	}
@@ -28,21 +28,18 @@ int CopyCommand::execute(std::string s) {
 		return fileDoesNotExist;
 	}
 	AbstractFile* new_clone = file_to_duplicate->clone(new_name);
-	/* vector<char> to_write;
-	
-	for (char c : file_to_duplicate->read()) {
-		to_write.push_back(c);
-	}*/
+	afs_ptr->addFile(new_name, new_clone);
+
 	if (new_clone->write(file_to_duplicate->read()) != successful) {
 		cout << "Unable to copy contents into a new file" << endl;
 		afs_ptr->deleteFile(new_clone->getName());
 		new_clone = nullptr; 
-		cout << "faile to write in cloned file" << endl;
+		cout << "failed to write in cloned file" << endl;
 		return failedCommand;
 	}
 	cout << "successfully wrote in cloned file" << endl;
 	afs_ptr->closeFile(file_to_duplicate);
-	afs_ptr->closeFile(new_clone);
+	//afs_ptr->closeFile(new_clone);
 	return successful;
 }
 
