@@ -1,6 +1,7 @@
 #pragma once
 #include "AbstractCommand.h"
 #include "AbstractFileFactory.h"
+#include <sstream>
 class TouchCommand : public AbstractCommand {
 	AbstractFileSystem* afs_ptr;
 	AbstractFileFactory* aff_ptr;

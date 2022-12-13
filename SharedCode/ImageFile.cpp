@@ -59,5 +59,6 @@ void ImageFile::accept(AbstractFileVisitor* afv) {
 }
 
 AbstractFile* ImageFile::clone(string newName) {
-	return new ImageFile (newName + ".img");
+	newName += "img";
+	return new ImageFile (newName);
 }

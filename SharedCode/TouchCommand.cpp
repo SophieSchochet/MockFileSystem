@@ -14,18 +14,19 @@ void TouchCommand::displayInfo() {
 int TouchCommand::execute(string s) {
 	
 	AbstractFile* ptr;
-	
-	if (s.substr(s.length()-2,2) == "-p") {
-		
-		s = s.substr(0, s.length() - 3);
-		cout << "substring:" << s << endl;
-		ptr = aff_ptr->createFile(s);
+	string fileName = "";
+	string extension = "";
+	istringstream iss(s);
+	iss >> fileName;
+	iss >> extension;
+	if (extension == "-p") {
+		ptr = aff_ptr->createFile(fileName);
 		cout << "What is the password you want to create?" << endl;
 		string in_pswd;
 		cin >> in_pswd;
 		PasswordProxy pswd = PasswordProxy(ptr,in_pswd);	
 		if (ptr != nullptr) {
-			int result = afs_ptr->addFile(s, &pswd);
+			int result = afs_ptr->addFile(fileName, &pswd);
 			if (result != successful) {
 				delete(ptr);
 			}
@@ -38,10 +39,10 @@ int TouchCommand::execute(string s) {
 	else
 
 	{
-		ptr = aff_ptr->createFile(s);
+		ptr = aff_ptr->createFile(fileName);
 		cout << "creating new file" << endl;
 		if (ptr != nullptr) {
-			int result = afs_ptr->addFile(s, ptr);
+			int result = afs_ptr->addFile(fileName, ptr);
 			if (result != successful) {
 				delete(ptr);
 			}

@@ -39,6 +39,7 @@ int CopyCommand::execute(std::string s) {
 		new_clone = nullptr; 
 		return failedCommand;
 	}
+	afs_ptr->closeFile(file_to_duplicate);
 	return successful;
 }
 

@@ -38,5 +38,6 @@ void TextFile::accept(AbstractFileVisitor* afv) {
 }
 
 AbstractFile* TextFile::clone(string newName) {
-	return new TextFile(newName + ".txt");
+	newName += ".txt";
+	return new TextFile(newName);
 }
