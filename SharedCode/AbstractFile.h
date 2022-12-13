@@ -22,6 +22,6 @@ public:
 
 
 enum errors {successful, incorrectImageFileInput, appendNotAvailable, sizeMismatch, 
-	duplicateFile, nullFile, duplicateFileName, invalidFileName, invalidExtension,
-	fileNotOpen, fileDoesNotExist, fileAlreadyOpen,incorrectPassword, cannotAddCommand, userQuit, 
-	commandDoesNotExist, cannotCreateFile, fileNameTooLong, failedCommand};
+	/*4*/ duplicateFile, nullFile, duplicateFileName, invalidFileName, invalidExtension,
+	/*9*/ fileNotOpen, fileDoesNotExist, fileAlreadyOpen, incorrectPassword, cannotAddCommand, userQuit,
+	/*15*/ commandDoesNotExist, cannotCreateFile, fileNameTooLong, failedCommand };

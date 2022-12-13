@@ -23,12 +23,13 @@ int ImageFile::write(vector<char> inputs) {
 	size = inputs[inputs.size() - 1] - '0';
 	inputs.pop_back();
 
-	//if ((size * size) != inputs.size()) {
-	//	return sizeMismatch;
-	//}
+	if ((size * size) != inputs.size()) {
+		return sizeMismatch;
+	}
+	/*
 	if (size < 0 || size > 9) {
 		return incorrectImageFileInput;
-	}
+	} */
 	for (char x : inputs) {
 		if (x != ' ' && x != 'X') {
 			contents.clear();
@@ -58,5 +59,5 @@ void ImageFile::accept(AbstractFileVisitor* afv) {
 }
 
 AbstractFile* ImageFile::clone(string newName) {
-	return new ImageFile (newName += ".img");
+	return new ImageFile (newName + ".img");
 }

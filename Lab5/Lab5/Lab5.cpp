@@ -7,7 +7,9 @@
 #include "..\..\SharedCode\SimpleFileFactory.h"
 #include "..\..\SharedCode\CommandPrompt.h"
 #include"..\..\SharedCode\TouchCommand.h"
-
+#include "..\..\SharedCode\DisplayCommand.h"
+#include "..\..\SharedCode\CatCommand.h"
+#include "..\..\SharedCode\LSCommand.h"
 
 int main()
 {
@@ -19,9 +21,17 @@ int main()
 	RenameParsingStrategy rps = RenameParsingStrategy();
 	MacroCommand mac_cmd = MacroCommand(&sfs);
 	TouchCommand tc = TouchCommand(&sfs, &sff);
+	DisplayCommand dc = DisplayCommand(&sfs);
+	CatCommand cat_cmd = CatCommand(&sfs);
+	LSCommand ls_cmd = LSCommand(&sfs);
+
 	mac_cmd.addCommand(&cpy);
 	mac_cmd.addCommand(&rem);
 	mac_cmd.setParseStrategy(&rps);
+
+	cmd_prmpt.addCommand("ls", &ls_cmd);
+	cmd_prmpt.addCommand("cat", &cat_cmd);
+	cmd_prmpt.addCommand("ds", &dc);
 	cmd_prmpt.addCommand("rm", &rem);
 	cmd_prmpt.addCommand("cp", &cpy);
 	cmd_prmpt.addCommand("rn", &mac_cmd);

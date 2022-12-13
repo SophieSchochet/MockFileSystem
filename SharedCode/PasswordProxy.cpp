@@ -29,7 +29,6 @@ vector<char> PasswordProxy::read() {
 	}
 
 	vector<char> toReturn = {};
-
 	return toReturn;
 
 }

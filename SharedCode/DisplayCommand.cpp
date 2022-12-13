@@ -10,11 +10,12 @@ DisplayCommand::DisplayCommand(AbstractFileSystem* afs_in) {
 
 
 int DisplayCommand::execute(string s) {
-	//string sub = s.substr(s.length() - 3);
 
-	if (s.substr(s.length() - 2, 2) == "-d") { //Unformatted
-		string fileName = s.substr(0, s.length() - 2);
-		AbstractFile* currentFile = afs_ptr->openFile(fileName);
+	if (s.substr(s.length() - 2) == "-d") { //Unformatted
+
+		string fileName = s.substr(0, s.length() - 3);
+
+		AbstractFile * currentFile = afs_ptr->openFile(fileName);
 		if (currentFile == nullptr) {
 			return fileNotOpen;
 		}
@@ -28,6 +29,9 @@ int DisplayCommand::execute(string s) {
 	}
 	else if (afs_ptr->openFile(s) != nullptr) { //Formatted
 		AbstractFile* currentFile = afs_ptr->openFile(s);
+		if (currentFile == nullptr) {
+			return fileNotOpen;
+		}
 		currentFile->accept(bdv_ptr);
 		return successful;
 	}
