@@ -27,7 +27,6 @@ int  CommandPrompt:: run() {
 
 	while (true) {
 		string input = prompt();
-
 		if (input == "q") {
 			cout << "User has Quit." << endl;
 			return userQuit;
@@ -35,13 +34,13 @@ int  CommandPrompt:: run() {
 		else if (input == "help") {
 			listCommands();
 		}
-
-		else if (! (input.find(' ') < input.length())) {
+		
+		else if (! (input.find(' ') < input.length())) { //No space is found, so command is only one word
 			bool found = false;
-			for (auto const& x : cmd_map) {
+			for (auto const& x : cmd_map) { //Search for the command in the map
 				if (x.first == input) {
 					found = true;
-					if (x.second->execute("") != 0) {
+					if (x.second->execute("") != 0) { //Call execute with no input
 						cout << "Command failed" << endl;
 					}
 				}
@@ -75,7 +74,7 @@ int  CommandPrompt:: run() {
 					if (x.first == first) {
 						found = true;
 						string info = input.substr(first.length() +1);
-						cout <<"Info:"<< info << endl;
+						cout << "Info: " << info << endl; 
 						if (x.second->execute(info) != successful) {
 							cout << "Command failed" << endl;
 						}

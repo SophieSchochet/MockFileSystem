@@ -38,6 +38,7 @@ int DisplayCommand::execute(string s) {
 			return fileNotOpen;
 		}
 		currentFile->accept(bdv_ptr);
+		cout << endl;
 		afs_ptr->closeFile(currentFile);
 		return successful;
 	}

@@ -23,7 +23,9 @@ int MacroCommand::execute(string s) {
 	//Iterate through all commands that the MacroCommand is comprised of 
 	for (int i = 0; i < commands.size(); i++) {
 		AbstractCommand* cmd = commands[i];
+		cout << "Inputs[i]: " << inputs[i] << endl;
 		if (cmd->execute(inputs[i]) != 0) {
+			cout << "Failed on iteration " << i << endl; 
 			return failedCommand;
 		}
 	}
