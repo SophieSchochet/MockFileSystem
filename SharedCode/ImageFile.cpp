@@ -16,7 +16,7 @@ unsigned int ImageFile::getSize() {
 }
 
 string ImageFile::getName() {
-	return name;
+	return this->name;
 }
 
 int ImageFile::write(vector<char> inputs) {

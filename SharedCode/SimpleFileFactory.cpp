@@ -10,7 +10,7 @@ AbstractFile* SimpleFileFactory::createFile(string fileName) {
 		if (fileName.find(" ")<fileName.length()) {
 			return nullptr;
 		}
-		string extension = fileName.substr(fileName.size() - 4, fileName.size() - 1);
+		string extension = fileName.substr(fileName.size() - 4, 4);
 		if (extension == ".txt") {
 			return new TextFile(fileName);
 		}

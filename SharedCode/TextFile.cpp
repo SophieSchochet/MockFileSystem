@@ -18,7 +18,7 @@ unsigned int TextFile::getSize() {
 }
 
 string TextFile::getName() {
-	return file_name;
+	return this->file_name;
 }
 
 int TextFile::write(vector<char> writeIn) {

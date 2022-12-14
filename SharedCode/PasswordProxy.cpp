@@ -11,7 +11,7 @@ PasswordProxy :: ~PasswordProxy() {
 string PasswordProxy::passwordPrompt() {
 	cout << "Please enter a password" << endl;
 	string input;
-	cin>>input;
+	getline(cin, input);
 	return input;
 }
 
@@ -28,7 +28,7 @@ vector<char> PasswordProxy::read() {
 		return af_ptr->read();
 	}
 
-	vector<char> toReturn = {};
+	vector<char> toReturn;
 	return toReturn;
 
 }

@@ -53,12 +53,14 @@ int CatCommand::execute(std::string s) {
 	else if (input == ":wq") {
 		cout << "User has saved and quit." << endl;
 		if (ifAppend) {
+			int appd_result = catFile->append(cat_user_input);
 			afs_ptr->closeFile(catFile);
-			return catFile->append(cat_user_input);
+			return appd_result;
 		}
 		else {
+			int write_result = catFile->write(cat_user_input);
 			afs_ptr->closeFile(catFile);
-			return catFile->write(cat_user_input);
+			return write_result;
 		}
 	}
 	else {
