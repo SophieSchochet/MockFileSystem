@@ -36,6 +36,10 @@ int CatCommand::execute(std::string s) {
 			cout << c;
 		}
 		cout << endl; 
+		cout << "Please enter the data you wish to add" << endl;
+	}
+	else {
+		cout << "Please enter the data you wish to rewrite" << endl;
 	}
 	vector<char> cat_user_input;
 	string input;
@@ -87,5 +91,5 @@ int CatCommand::execute(std::string s) {
 //Command to display information bout the command to the user
 void CatCommand::displayInfo() {
 	cout << "The cat command can be invoked with cat <filename> to write or cat <filename> -a to append." << endl;
-	cout << " Enter data you would like to append to the existing file. Enter :wq to save the file and exit, enter :q to exist without saving." << endl;
+	cout << " Enter data you would like to append to the existing file. When done, press Enter then :wq to save the file and exit, enter :q to exist without saving." << endl;
 }

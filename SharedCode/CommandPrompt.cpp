@@ -80,7 +80,6 @@ int  CommandPrompt:: run() {
 					if (x.first == first) {
 						found = true;
 						string info = input.substr(first.length() +1);
-						cout << "Info: " << info << endl; 
 						if (x.second->execute(info) != successful) {
 							cout << "Command failed" << endl;
 						}
