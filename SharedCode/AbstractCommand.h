@@ -1,3 +1,6 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This file contains the AbstractCommand class definition that other commands can inherit from
+
 #pragma once
 
 #include <string>

@@ -1,3 +1,6 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This file contains the declaration of the RemoveCommand class 
+
 #pragma once
 #include "AbstractCommand.h"
 #include "AbstractFileFactory.h"

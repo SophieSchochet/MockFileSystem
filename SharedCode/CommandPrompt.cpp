@@ -1,3 +1,6 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This program allows the user to input various commands and interact with the file system
+
 #include "CommandPrompt.h"
 using namespace std;
 
@@ -13,6 +16,7 @@ void CommandPrompt::setFileFactory(AbstractFileFactory* aff_in) {
 	 aff = aff_in;
 }
 
+//addCommand inserts a given command into the command map and either returns 0 to indicate sucess or a corresponding nonzero failure value
 int CommandPrompt::addCommand(std::string s, AbstractCommand* ac_in) {
 	
 	if (cmd_map.insert({ s, ac_in }).second) {
@@ -49,6 +53,7 @@ int  CommandPrompt:: run() {
 				cout << "Command not found" << endl;
 			}
 		}
+		//If the first word is help and the second word is a valid command name, information on that command is displayed to the user
 		else {
 			stringstream iss(input);
 			string first;
@@ -68,6 +73,7 @@ int  CommandPrompt:: run() {
 				}
 
 			}
+			//Checks to see if the first word extracted is a valid command name, passing the remainder of the string into the execute parameters
 			else {
 				bool found = false;
 				for (auto const& x : cmd_map) {

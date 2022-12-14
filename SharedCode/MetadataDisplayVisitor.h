@@ -1,4 +1,5 @@
 #pragma once
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
 // declaration of MetadataDisplayVisitor here
 
 #include "AbstractFileVisitor.h"

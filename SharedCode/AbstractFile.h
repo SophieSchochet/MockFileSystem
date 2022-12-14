@@ -1,4 +1,7 @@
 #pragma once
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+// This file contains the AbstractFile class definition to be used by different file types.
+// It also contains relevant enum return values utilized throughout the program
 // declare AbstractFile here. As all methods are virtual and will not be defined, no .cpp file is necessary
 #include <vector>
 #include <iostream>

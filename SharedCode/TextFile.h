@@ -1,4 +1,5 @@
 #pragma once
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
 // TextFile declaration goes here
 #include "AbstractFile.h"
 

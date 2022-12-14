@@ -1,3 +1,5 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This file contains the declaration of the DisplayCommand class that inherits publicly fron the AbstractCommand class
 #pragma once
 #include "../SharedCode/AbstractCommand.h"
 #include "../SharedCode/AbstractFileSystem.h"

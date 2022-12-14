@@ -1,4 +1,5 @@
 #pragma once
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
 // declaration of SimpleFileSystem class goes here
 #include "..\SharedCode\AbstractFileSystem.h"
 #include "ImageFile.h"

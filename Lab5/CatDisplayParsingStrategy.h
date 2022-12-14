@@ -1,3 +1,6 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This file contains the class definition of the CatDisplayParsingStrategy 
+
 #pragma once
 #include "..\SharedCode\AbstractParsingStrategy.h"
 #include <sstream>

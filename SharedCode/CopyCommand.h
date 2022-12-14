@@ -1,3 +1,5 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This file contains the declaration of the CopyCommand class that inherits publicly from the AbstractCommand class
 #pragma once
 #include "AbstractCommand.h"
 #include "AbstractFileFactory.h"

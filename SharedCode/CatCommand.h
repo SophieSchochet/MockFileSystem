@@ -1,3 +1,5 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This file declares the CatCommand class that inherits from the Abstract command class
 #pragma once
 #include "AbstractCommand.h"
 #include "AbstractFileFactory.h"

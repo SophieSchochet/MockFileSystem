@@ -1,4 +1,6 @@
 #include "CatDisplayParsingStrategy.h"
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+// The purpose of this file is to define the parsing strategy for the cads command to be implemented by the program
 //Format of command: cads <filename> [-a] [-d]
 
 using namespace std;
@@ -12,6 +14,7 @@ vector<string> CatDisplayParsingStrategy::parse(string to_parse) {
 	string dsArgs;
 	string name;
 
+	//if you cannot extract an argument, return an empty vector
 	if (!(iss >> first)) {
 		return to_return;
 	}
@@ -48,5 +51,6 @@ vector<string> CatDisplayParsingStrategy::parse(string to_parse) {
 	to_return.push_back(catArgs);
 	to_return.push_back(dsArgs);
 
+	//return the final vector of arguments
 	return to_return;
 }

@@ -1,12 +1,16 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This program defines the CopyCommand class that includes the constructor, the execute command, and the DisplayInfo command
 #include "CopyCommand.h"
 using namespace std;
 
+//Creates a new CopyCommand object, takes in a pointer to an AbstractFileSyStem
 CopyCommand:: CopyCommand (AbstractFileSystem* afs_in) {
 	afs_ptr = afs_in;
 }
 
 
-
+//The execute function extracts two names from the string parameter, the file to be copied and the new file name
+//If the file is successfuly copied, it will return 0 to indicate success. Otherwise, it will return a nonzero value corresponding to the error encountered
 int CopyCommand::execute(std::string s) {
 	istringstream iss(s);
 	string to_copy;
@@ -35,14 +39,15 @@ int CopyCommand::execute(std::string s) {
 	afs_ptr->closeFile(file_to_duplicate);
 	string copy_name = new_clone->getName();
 
+	//The new copy cannot have the same name
 	if (copy_name == to_copy) {
 		cout << "Invalid Name" << endl;
 		return cannotCreateFile;
 	}
 
+	//If the new copy cannot succesfully be added to the file system, the user will be notified and the new copy will be deleted
 	if (afs_ptr->addFile(copy_name, new_clone) != successful) {
 		cout << "File could not be created" << endl;
-		//afs_ptr->deleteFile(new_clone->getName());
 		new_clone = nullptr;
 		return cannotCreateFile;
 	}
@@ -52,7 +57,7 @@ int CopyCommand::execute(std::string s) {
 	return successful;
 }
 
-
+//Displays helpful information about the Copy command to the user
 void CopyCommand::displayInfo() {
 	cout << "The copy command copies a file that exists and adds it to the system with a different name. It is invoked with cp <file_to_copy> <new_name_with_no_extension>" << endl;
 }

@@ -1,3 +1,5 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This file contains the declaration of the PasswordProxy class
 #pragma once
 #include "AbstractFile.h"
 class AbstractFileVistor;

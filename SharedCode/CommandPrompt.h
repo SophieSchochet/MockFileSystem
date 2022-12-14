@@ -1,3 +1,6 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This file declares the CommandPrompt class that allows users to simulate a real terminal
+
 #pragma once
 #include "AbstractFileFactory.h"
 #include "AbstractCommand.h"

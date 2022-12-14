@@ -1,4 +1,6 @@
 #pragma once
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+// This file contains the AbstractFileVisitor class that is inherited by other visitors in the program to allow functions to visit files.
 // declaration of the file visitor interface here
 
 #include "ImageFile.h"

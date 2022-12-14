@@ -1,3 +1,5 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This file contains the definition of the LSCommand class 
 #pragma once
 #include "AbstractCommand.h"
 #include "AbstractFileFactory.h"

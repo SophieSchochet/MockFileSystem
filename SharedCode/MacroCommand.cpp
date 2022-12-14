@@ -1,8 +1,11 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//The purpose of this program is to define the functions within the MacroCommand class
 #include "MacroCommand.h"
 
 
 using namespace std;
 
+//Constructs a MacroCommand given a pointer to an AbstractFileSystem
 MacroCommand::MacroCommand(AbstractFileSystem* afs_ptr_in) {
 	afs_ptr = afs_ptr_in;
 }
@@ -13,6 +16,7 @@ void MacroCommand::addCommand(AbstractCommand* ab_cmd_ptr) {
 	commands.push_back(ab_cmd_ptr);
 }
 
+//takes a pointer to an AbstractParsingStrategy and sets the parsing strategy of the Macrocommand to it
 void MacroCommand::setParseStrategy(AbstractParsingStrategy* aps_ptr_in) {
 	aps_ptr = aps_ptr_in;
 }
@@ -34,6 +38,7 @@ int MacroCommand::execute(string s) {
 
 }
 
+//Displays helpful information about MacroCommand to the user
 void MacroCommand::displayInfo() {
 	cout << "A macroCommand is a combination of two commands. Refer to ReadMe.txt for more information on how to invoke each individual command" << endl;
 }

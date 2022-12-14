@@ -1,3 +1,6 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//The purpose of this file is to declare the RenameParsingStrategy class
+
 #pragma once
 #include "..\SharedCode\AbstractParsingStrategy.h"
 #include <sstream>

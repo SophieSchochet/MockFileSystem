@@ -1,5 +1,6 @@
 // Lab5.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//The purpose of this porgram is to implement a command prompt in which users can execute commands that allow them to interact with file systems.
 #include "..\..\SharedCode\RenameParsingStrategy.h"
 #include "..\..\SharedCode\MacroCommand.h"
 #include "..\..\SharedCode\RemoveCommand.h"
@@ -42,7 +43,6 @@ int main()
 	mac_cmd.addCommand(&rem);
 	mac_cmd.setParseStrategy(&rps);
 
-
 	cmd_prmpt.addCommand("cads", &cat_ds);
 	cmd_prmpt.addCommand("ls", &ls_cmd);
 	cmd_prmpt.addCommand("cat", &cat_cmd);
@@ -52,9 +52,11 @@ int main()
 	cmd_prmpt.addCommand("rn", &mac_cmd);
 	cmd_prmpt.addCommand("touch", &tc);
 	
-
+	//run the command prompt
 	cmd_prmpt.run();
-	return 0;
+	
+	//if the program has executed to this point, it is successful
+	return successful;
 }
 
 

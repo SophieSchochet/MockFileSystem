@@ -1,5 +1,7 @@
 #pragma once
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
 // declaration of BasicDisplayVisitor here
+//This file contains the declaration of the BasicDisplayVisitor class that inherits publicly from the AbstractFileVisitor class
 
 #include "AbstractFileVisitor.h"
 

@@ -1,4 +1,5 @@
-#pragma once
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//This file contains the declaration of the MacroCommand class
 
 #pragma once
 

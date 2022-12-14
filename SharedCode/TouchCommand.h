@@ -1,3 +1,5 @@
+//Authors: Ellie Ertl, Sophie Schochet, Veda Bhalla
+//Thsi file contains the declaration of the TouchCommand class
 #pragma once
 #include "AbstractCommand.h"
 #include "AbstractFileFactory.h"
