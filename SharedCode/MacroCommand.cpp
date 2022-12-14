@@ -20,19 +20,15 @@ void MacroCommand::setParseStrategy(AbstractParsingStrategy* aps_ptr_in) {
 //Take output from parsing strategy and individually execute each command
 int MacroCommand::execute(string s) {
 	vector<string> inputs = aps_ptr->parse(s);
-	int cmdSuccess = successful;
 	//Iterate through all commands that the MacroCommand is comprised of 
 	for (int i = 0; i < commands.size(); i++) {
 		AbstractCommand* cmd = commands[i];
-		cmdSuccess += cmd->execute(inputs[i]);
+		if (cmd->execute(inputs[i]) != 0) {
+			return failedCommand;
+		}
 	}
-	//If any command fails, cmdSuccess will be greater than 0 and the whole MacroCommand fails
-	if (cmdSuccess != successful) {
-		return failedCommand;
-	}
-	else {
-		return successful;
-	}
+	//If we've made it to this point, execution was successful because each individuual command executed successfully
+	return successful;
 
 }
 

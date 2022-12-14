@@ -27,33 +27,28 @@ int CopyCommand::execute(std::string s) {
 	//Ensure we could open the file we need to duplicate.
 	if (file_to_duplicate == nullptr) {
 		cout << "The file you wish to duplicate was not found" << endl;
-		return fileDoesNotExist;
+		return fileDoesNotExist; 
 	}
 
 	//Make a clone of the file and add it to the system.
 	AbstractFile* new_clone = file_to_duplicate->clone(new_name);
-	
-	if (afs_ptr->addFile(new_clone->getName(), new_clone) != successful) {
-		cout << "Invalid name" << endl;
-		afs_ptr->deleteFile(new_clone->getName());
+	afs_ptr->closeFile(file_to_duplicate);
+	string copy_name = new_clone->getName();
+
+	if (copy_name == to_copy) {
+		cout << "Invalid Name" << endl;
+		return cannotCreateFile;
+	}
+
+	if (afs_ptr->addFile(copy_name, new_clone) != successful) {
+		cout << "File could not be created" << endl;
+		//afs_ptr->deleteFile(new_clone->getName());
 		new_clone = nullptr;
 		return cannotCreateFile;
 	}
 
-	/*//If we can't write the contents of the old file to the new file, command has failed.
-	if (afs_ptr->openFile(new_clone->getName())->write(file_to_duplicate->read()) != successful) {
-		cout << "Unable to copy contents into a new file" << endl;
-		afs_ptr->closeFile(new_clone);
-		afs_ptr->deleteFile(new_clone->getName());
-		new_clone = nullptr; 
-		cout << "failed to write in cloned file" << endl;
-		return failedCommand;
-	}*/
-
 	//If we haven't returned an error by this point, it was successful.
 	cout << "successfully wrote in cloned file" << endl;
-	afs_ptr->closeFile(file_to_duplicate);
-	afs_ptr->closeFile(new_clone);
 	return successful;
 }
 
