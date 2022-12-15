@@ -36,10 +36,10 @@ int CatCommand::execute(std::string s) {
 			cout << c;
 		}
 		cout << endl; 
-		cout << "Please enter the data you wish to add" << endl;
+		cout << "You are now appending to the file. Please enter the data you wish to add. When finished, you may enter :wq to save and wuit or :q to quit without saving" << endl;
 	}
 	else {
-		cout << "Please enter the data you wish to rewrite" << endl;
+		cout << "Please enter the data you wish to rewrite to the file. When finished, you may enter :wq to save and quit or :q to quit without saving." << endl;
 	}
 	vector<char> cat_user_input;
 	string input;

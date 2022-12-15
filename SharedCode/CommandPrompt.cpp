@@ -32,7 +32,7 @@ int  CommandPrompt:: run() {
 	while (true) {
 		string input = prompt();
 		if (input == "q") {
-			cout << "User has Quit." << endl;
+			cout << "User has quit." << endl;
 			return userQuit;
 		} 
 		else if (input == "help") {
